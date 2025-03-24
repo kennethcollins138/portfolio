@@ -1,35 +1,138 @@
 @import "tailwindcss";
 
-/* TODO: THINK ABOUT LIGHT/DARK MODE */
+/* Base Variables */
 :root {
     --color-bg: #0d1117;
-    /* Dark background */
     --color-bg-light: #161b22;
-    /* Slightly lighter bg (cards/sections) */
     --color-text: #e6edf3;
-    /* Main text color */
     --color-text-muted: #8b949e;
-    /* Muted text for subtitles */
     --color-primary: #58a6ff;
-    /* Accent color for links/buttons */
     --color-secondary: #f778ba;
-    /* Secondary accent */
     --color-border: #30363d;
-    /* Border lines */
     --color-hover: #1f6feb;
-    /* Hover state for buttons/links */
+    --nebula-color: #0f2e5a;
 }
-
-@media (prefers-color-scheme: dark) {}
 
 body {
-    background: var(--color-bg);
-    color: var(--color-bg-light);
-    font-family: Arial, Helvetica, sans-serif;
+    @apply bg-black text-gray-100 font-sans m-0 p-0 min-h-screen w-full overflow-x-hidden;
 }
 
-/*TODO: fine tune media sizing, color and variables  */
-.project-card  {
-    background: var(--color-bg-light);
-    @apply flex items-center
+/* Main cosmic background - fixed to cover the entire viewport */
+.cosmic-background {
+    @apply fixed top-0 left-0 w-full h-full bg-black overflow-hidden z-0;
 }
+
+/* Star field effect */
+.stars {
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image:
+            radial-gradient(1px 1px at 25px 5px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 50px 25px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 125px 20px, white 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 50px 75px, white 50%, transparent 100%),
+            radial-gradient(2px 2px at 175px 125px, white 50%, transparent 100%),
+            radial-gradient(2px 2px at 20px 175px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 200px 5px, white 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 250px 275px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 300px 215px, white 50%, transparent 100%),
+            radial-gradient(2px 2px at 350px 175px, white 50%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 400px 125px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 450px 20px, white 50%, transparent 100%),
+            radial-gradient(1px 1px at 500px 75px, white 50%, transparent 100%);
+    background-repeat: repeat;
+    background-size: 600px 600px;
+    opacity: 0.5;
+}
+
+/* Nebula fog layers */
+.nebula-fog {
+    @apply absolute top-0 left-0 w-full h-full opacity-80;
+    background:
+            radial-gradient(circle at 30% 50%, var(--nebula-color), transparent 60%),
+            radial-gradient(circle at 70% 50%, var(--nebula-color), transparent 60%);
+    filter: blur(30px);
+    animation: nebulaShift 120s infinite alternate;
+}
+
+/* Character section styles for improved layout */
+.character-section {
+    @apply relative min-h-screen w-full flex flex-col items-center justify-center;
+    z-index: 10;
+}
+
+/* Header content wrapper to position name at the top */
+.header-content {
+    @apply text-center mb-8 w-full z-20;
+}
+
+/* About me content for sides of portal */
+.about-wrapper {
+    @apply flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto px-4;
+}
+
+.about-column {
+    @apply md:w-1/4 p-4 text-center md:text-left;
+}
+
+.about-column.right {
+    @apply md:text-right;
+}
+
+/* Background page styling */
+.background-page {
+    @apply relative min-h-screen w-full overflow-hidden;
+    background-color: transparent;
+    isolation: isolate;
+}
+
+/* Content section styles */
+.content-section {
+    @apply relative w-full z-10;
+}
+
+/* Glass panel styling for about text */
+.glass-panel {
+    @apply bg-blue-900 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700 opacity-30;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Project card styles */
+.project-card {
+    @apply flex flex-col items-start opacity-50 backdrop-filter backdrop-blur-sm border border-blue-900;
+}
+
+/* Nebula animation keyframe */
+@keyframes nebulaShift {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.2;
+    }
+}
+
+/**
+    GOOD scifi-colors:
+    #B0C4DE
+    #4B0082
+    #A9A9A9
+    #000000
+    #FFFFFF
+    #1A1A2E
+    #EAE2B7
+    #FF4C00
+    #FFAA33
+    #FFC107
+    #58a6ff
+    #1f6feb
+    #f778ba
+    #3E2A6E
+    #7E5C9B
+    #FFB5E8
+    #1D0F4B
+ */
