@@ -1,57 +1,39 @@
-// import { Canvas } from '@react-three/fiber';
-// import { useEffect, useState } from 'react';
-// import { motion } from 'framer-motion';
-// import { PerspectiveCamera, Sphere } from '@react-three/';
-//
-// export default function LandingSection() {
-//   const [hasScrolled, setHasScrolled] = useState(false);
-//
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       if (window.scrollY > 50) {
-//         setHasScrolled(true);
-//       }
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-//
-//   return (
-//     <div className="relative h-screen w-full overflow-hidden">
-//       {/* 3D Scene */}
-//       <Canvas className="absolute top-0 left-0 w-full h-full">
-//         <PerspectiveCamera makeDefault position={[0, 1, 5]} />
-//         <ambientLight intensity={0.5} />
-//         <pointLight position={[5, 5, 5]} intensity={1} />
-//
-//         {/* Placeholder for Character */}
-//         <Sphere args={[0.5, 32, 32]} position={[0, -1, 0]}>
-//           <meshStandardMaterial color="white" />
-//         </Sphere>
-//
-//         {/* Glowing Portal */}
-//         <mesh position={[0, 0, -3]}>
-//           <torusGeometry args={[2, 0.3, 16, 100]} />
-//           <meshStandardMaterial emissive="blue" emissiveIntensity={2} />
-//         </mesh>
-//       </Canvas>
-//
-//       {/* Overlay Text */}
-//       <motion.div
-//         initial={{ opacity: 0, y: 20 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 1 }}
-//         className="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
-//       >
-//         <h1 className="text-4xl font-bold">Welcome to My Digital World</h1>
-//         <p className="mt-2 text-lg">Building the future, one dimension at a time.</p>
-//         <motion.button
-//           whileHover={{ scale: 1.1 }}
-//           className="mt-4 px-6 py-2 bg-blue-600 rounded-lg text-white font-bold shadow-lg"
-//         >
-//           Start the Journey
-//         </motion.button>
-//       </motion.div>
-//     </div>
-//   );
-// }
+import React from "react";
+
+export default function LandingSection({ children, classname }: { children?: React.ReactNode; classname?: string }) {
+  return (
+    <section className={`${classname} character-section flex flex-col items-center justify-center`}>
+      {/* Name displayed above the portal */}
+      <div className="header-content text-center mb-8 w-full z-20">
+        <h1 className="text-8xl font-bold mb-2 text-white">Kenny Collins</h1>
+        <p className="text-4xl text-blue-200">Fullstack Software Engineer</p>
+      </div>
+      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto px-4">
+        {/* Left panel - Skills */}
+        <div className="hidden md:block md:w-1/4 p-4">
+          <div className="flex flex-col p-6 rounded-lg bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm border border-blue-700 hover:bg-opacity-40 transition-all duration-300">
+            <h3 className="text-xl font-bold mb-2 text-blue-300">Skills</h3>
+            <p className="text-gray-200">Languages: Typescript, Go, Python.</p>
+          </div>
+        </div>
+        {children}
+        {/* Right panel - Experience */}
+        <div className="hidden md:block md:w-1/4 p-4">
+          <div className="flex flex-col p-6 rounded-lg bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm border border-blue-700 hover:bg-opacity-40 transition-all duration-300">
+            <h3 className="text-xl font-bold mb-2 text-blue-300">Experience</h3>
+            <p className="text-gray-200">Filler: Make this an experience portion or about me?</p>
+          </div>
+        </div>
+        {/* Mobile-only about section */}
+        <div className="w-full px-4 mt-8 md:hidden">
+          <div className="glass-panel bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700">
+            <h3 className="text-xl font-bold mb-2 text-center text-blue-300">About Me</h3>
+            <p className="text-gray-200">
+              Full-stack developer passionate about creating exceptional digital experiences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,56 +1,19 @@
+import LandingSection from "@/components/about-me/LandingSection";
 import CosmicPortal from "@/components/space/CosmicPortal";
 
 export default function Home() {
   return (
     <div className="background-page">
-      {/* Fixed cosmic background that extends everywhere */}
+      {/* TODO: make stars more random and spread out */}
       <div className="cosmic-background">
         <div className="stars"></div>
         <div className="nebula-fog"></div>
       </div>
 
-      {/* Character section with centered portal and name above */}
-      <section className="character-section flex flex-col items-center justify-center">
-        {/* Name displayed above the portal */}
-        <div className="header-content text-center mb-8 w-full z-20">
-          <h1 className="text-5xl font-bold mb-2 text-white">Kenny Collins</h1>
-          <p className="text-xl text-blue-200">Software Engineer & Developer</p>
-        </div>
-
-        {/* Main content container for portal and info panels */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto px-4">
-          {/* Left panel - Skills */}
-          <div className="hidden md:block md:w-1/4 p-4">
-            <div className="glass-panel bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700">
-              <h3 className="text-xl font-bold mb-2 text-blue-300">Skills</h3>
-              <p className="text-gray-200">Filler: Think about listing frameworks/languages etc.</p>
-            </div>
-          </div>
-
-          {/* Center portal */}
-          <div className="md:w-2/4 flex justify-center">
-            <CosmicPortal />
-          </div>
-
-          {/* Right panel - Experience */}
-          <div className="hidden md:block md:w-1/4 p-4">
-            <div className="glass-panel bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700">
-              <h3 className="text-xl font-bold mb-2 text-blue-300">Experience</h3>
-              <p className="text-gray-200">Filler: Make this an experience portion or about me?</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile-only about section */}
-        <div className="w-full px-4 mt-8 md:hidden">
-          <div className="glass-panel bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700">
-            <h3 className="text-xl font-bold mb-2 text-center text-blue-300">About Me</h3>
-            <p className="text-gray-200">
-              Full-stack developer passionate about creating exceptional digital experiences.
-            </p>
-          </div>
-        </div>
-      </section>
+      <LandingSection>
+        {/* Separating space content and about me for easier navigation when coding. */}
+        <CosmicPortal />
+      </LandingSection>
 
       {/* Projects section */}
       <section id="projects" className="content-section py-20">
