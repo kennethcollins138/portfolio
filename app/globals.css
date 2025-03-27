@@ -1,35 +1,69 @@
 @import "tailwindcss";
 
-/* TODO: THINK ABOUT LIGHT/DARK MODE */
+/* Base Variables */
 :root {
+    /* Core color theme */
     --color-bg: #0d1117;
-    /* Dark background */
     --color-bg-light: #161b22;
-    /* Slightly lighter bg (cards/sections) */
     --color-text: #e6edf3;
-    /* Main text color */
     --color-text-muted: #8b949e;
-    /* Muted text for subtitles */
     --color-primary: #58a6ff;
-    /* Accent color for links/buttons */
     --color-secondary: #f778ba;
-    /* Secondary accent */
     --color-border: #30363d;
-    /* Border lines */
     --color-hover: #1f6feb;
-    /* Hover state for buttons/links */
+    --nebula-color: #0f2e5a;
+
+    /* Portal colors */
+    --portal-outer: #0061ff;
+    --portal-inner: #00c3ff;
+    --portal-glow: #0088ff;
+    --portal-edge: #00eeff;
+    --portal-energy: #0a84ff;
+    --portal-middle: #1a88ff;
+
+    /* Portal segment heights */
+    --h1: 8%;
+    --h2: 10%;
+    --h3: 7%;
+    --h4: 9%;
+    --h5: 6%;
+    --h6: 8%;
+
+    /* Preset lengths for lightning */
+    --l1: 8px;
+    --l2: 10px;
+    --l3: 6px;
+    --l4: 9px;
+    --l5: 7px;
+    --l6: 8px;
+
+    /* Default lightning frequency */
+    --lightning-frequency: 4s;
 }
 
-@media (prefers-color-scheme: dark) {}
-
+/* Base body styles */
 body {
-    background: var(--color-bg);
-    color: var(--color-bg-light);
-    font-family: Arial, Helvetica, sans-serif;
+    @apply bg-black text-gray-100 font-sans m-0 p-0 min-h-screen w-full overflow-x-hidden;
+    font-family: var(--font-cartesian), sans-serif;
 }
 
-/*TODO: fine tune media sizing, color and variables  */
-.project-card  {
-    background: var(--color-bg-light);
-    @apply flex items-center
-}
+/**
+    GOOD scifi-colors reference:
+    #B0C4DE - Light Steel Blue
+    #4B0082 - Indigo
+    #A9A9A9 - Dark Gray
+    #000000 - Black
+    #FFFFFF - White
+    #1A1A2E - Dark Blue
+    #EAE2B7 - Light Beige
+    #FF4C00 - Bright Orange
+    #FFAA33 - Amber
+    #FFC107 - Gold
+    #58a6ff - Bright Blue
+    #1f6feb - Medium Blue
+    #f778ba - Pink
+    #3E2A6E - Dark Purple
+    #7E5C9B - Medium Purple
+    #FFB5E8 - Light Pink
+    #1D0F4B - Deep Purple
+ */
