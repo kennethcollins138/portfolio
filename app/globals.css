@@ -2,6 +2,7 @@
 
 /* Base Variables */
 :root {
+    /* Core color theme */
     --color-bg: #0d1117;
     --color-bg-light: #161b22;
     --color-text: #e6edf3;
@@ -11,193 +12,58 @@
     --color-border: #30363d;
     --color-hover: #1f6feb;
     --nebula-color: #0f2e5a;
+
+    /* Portal colors */
+    --portal-outer: #0061ff;
+    --portal-inner: #00c3ff;
+    --portal-glow: #0088ff;
+    --portal-edge: #00eeff;
+    --portal-energy: #0a84ff;
+    --portal-middle: #1a88ff;
+
+    /* Portal segment heights */
+    --h1: 8%;
+    --h2: 10%;
+    --h3: 7%;
+    --h4: 9%;
+    --h5: 6%;
+    --h6: 8%;
+
+    /* Preset lengths for lightning */
+    --l1: 8px;
+    --l2: 10px;
+    --l3: 6px;
+    --l4: 9px;
+    --l5: 7px;
+    --l6: 8px;
+
+    /* Default lightning frequency */
+    --lightning-frequency: 4s;
 }
 
+/* Base body styles */
 body {
     @apply bg-black text-gray-100 font-sans m-0 p-0 min-h-screen w-full overflow-x-hidden;
     font-family: var(--font-cartesian), sans-serif;
 }
 
-/* Main cosmic background - fixed to cover the entire viewport */
-.cosmic-background {
-    @apply fixed top-0 left-0 w-full h-full bg-black overflow-hidden z-0;
-}
-
-/* Star field effect */
-.stars {
-    @apply absolute top-0 left-0 w-full h-full;
-    background-image:
-        /* Small stars */
-        radial-gradient(1px 1px at 10% 10%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 20% 20%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 30% 10%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 40% 30%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 50% 40%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 60% 30%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 70% 20%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 80% 10%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 90% 40%, white 50%, transparent 100%),
-        /* Medium stars */
-        radial-gradient(1.5px 1.5px at 15% 50%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 25% 70%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 35% 80%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 45% 60%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 55% 70%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 65% 80%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 75% 50%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 85% 60%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 95% 70%, white 50%, transparent 100%),
-        /* Large stars */
-        radial-gradient(2px 2px at 5% 35%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 15% 85%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 25% 25%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 35% 35%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 45% 85%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 55% 25%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 65% 35%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 75% 85%, white 50%, transparent 100%),
-        radial-gradient(2px 2px at 85% 35%, white 50%, transparent 100%),
-        /* Center area stars */
-        radial-gradient(1px 1px at 45% 45%, white 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 50% 50%, white 60%, transparent 100%),
-        radial-gradient(1px 1px at 55% 55%, white 50%, transparent 100%),
-        radial-gradient(1.2px 1.2px at 48% 52%, white 50%, transparent 100%),
-        radial-gradient(1.3px 1.3px at 52% 48%, white 50%, transparent 100%),
-        /* Extra stars (Fillers to feel more natural) */
-        radial-gradient(1px 1px at 33% 44%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 57% 43%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 22% 67%, white 50%, transparent 100%),
-        radial-gradient(1px 1px at 78% 63%, white 50%, transparent 100%);
-
-    background-repeat: repeat;
-    background-size: 100% 100%;
-    opacity: 0.7;
-    position: relative;
-    z-index: 0;
-    animation: twinkle 100s linear infinite;
-}
-
-.stars:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-            radial-gradient(1px 1px at 25% 15%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 35% 45%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 55% 25%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 65% 55%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 75% 35%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 15% 65%, white 50%, transparent 100%),
-            radial-gradient(1px 1px at 85% 75%, white 50%, transparent 100%);
-    background-size: 100% 100%;
-    background-repeat: repeat;
-    opacity: 0.5;
-    z-index: -1;
-    animation: twinkle 200s linear infinite alternate;
-}
-
-/* Twinkling animation */
-@keyframes twinkle {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-/* Nebula fog layers */
-.nebula-fog {
-    @apply absolute top-0 left-0 w-full h-full opacity-80;
-    background:
-            radial-gradient(circle at 30% 50%, var(--color-primary), transparent 60%),
-            radial-gradient(circle at 70% 50%, var(--nebula-color), transparent 60%);
-    filter: blur(30px);
-    animation: nebulaShift 120s infinite alternate;
-}
-
-/* Character section styles for improved layout */
-.character-section {
-    @apply relative min-h-screen w-full flex flex-col items-center justify-center;
-    z-index: 10;
-}
-
-/* Header content wrapper to position name at the top */
-.header-content {
-    @apply text-center mb-8 w-full z-20;
-}
-
-/* About me content for sides of portal */
-.about-wrapper {
-    @apply flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto px-4;
-}
-
-.about-column {
-    @apply md:w-1/4 p-4 text-center md:text-left;
-}
-
-.about-column.right {
-    @apply md:text-right;
-}
-
-/* Background page styling */
-.background-page {
-    @apply relative min-h-screen w-full overflow-hidden;
-    background-color: transparent;
-    isolation: isolate;
-}
-
-/* Content section styles */
-.content-section {
-    @apply relative w-full z-10;
-}
-
-/* Glass panel styling for about text */
-.glass-panel {
-    @apply bg-blue-900 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700 opacity-30;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Project card styles */
-.project-card {
-    @apply flex flex-col items-start opacity-50 backdrop-filter backdrop-blur-sm border border-blue-900;
-}
-
-/* Nebula animation keyframe */
-@keyframes nebulaShift {
-    0% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        transform: scale(1.1) rotate(5deg);
-        opacity: 0.2;
-    }
-}
-
 /**
-    GOOD scifi-colors:
-    #B0C4DE
-    #4B0082
-    #A9A9A9
-    #000000
-    #FFFFFF
-    #1A1A2E
-    #EAE2B7
-    #FF4C00
-    #FFAA33
-    #FFC107
-    #58a6ff
-    #1f6feb
-    #f778ba
-    #3E2A6E
-    #7E5C9B
-    #FFB5E8
-    #1D0F4B
+    GOOD scifi-colors reference:
+    #B0C4DE - Light Steel Blue
+    #4B0082 - Indigo
+    #A9A9A9 - Dark Gray
+    #000000 - Black
+    #FFFFFF - White
+    #1A1A2E - Dark Blue
+    #EAE2B7 - Light Beige
+    #FF4C00 - Bright Orange
+    #FFAA33 - Amber
+    #FFC107 - Gold
+    #58a6ff - Bright Blue
+    #1f6feb - Medium Blue
+    #f778ba - Pink
+    #3E2A6E - Dark Purple
+    #7E5C9B - Medium Purple
+    #FFB5E8 - Light Pink
+    #1D0F4B - Deep Purple
  */

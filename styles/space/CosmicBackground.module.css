@@ -1,0 +1,11 @@
+@reference "tailwindcss";
+
+.cosmicBackground {
+    @apply fixed top-0 left-0 w-full h-full bg-black overflow-hidden z-0;
+}
+
+.backgroundPage {
+    @apply relative min-h-screen w-full overflow-hidden;
+    background-color: transparent;
+    isolation: isolate;
+}

@@ -1,0 +1,33 @@
+@reference "tailwindcss";
+
+.nebulaFog {
+    @apply absolute top-0 left-0 w-full h-full;
+    filter: blur(30px);
+    animation: nebulaShift 120s infinite alternate;
+}
+
+.opacityLow {
+    @apply opacity-40;
+}
+
+.opacityMedium {
+    @apply opacity-80;
+}
+
+.opacityHigh {
+    @apply opacity-90;
+}
+
+@keyframes nebulaShift {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.2;
+    }
+}

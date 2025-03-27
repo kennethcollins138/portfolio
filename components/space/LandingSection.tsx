@@ -1,10 +1,12 @@
 import React from "react";
 
+import styles from "@/styles/space/LandingSection.module.css";
+
 export default function LandingSection({ children, classname }: { children?: React.ReactNode; classname?: string }) {
   return (
-    <section className={`${classname} character-section flex flex-col items-center justify-center`}>
+    <section className={`${classname} ${styles.characterSection} flex flex-col items-center justify-center`}>
       {/* Name displayed above the portal */}
-      <div className="header-content text-center mb-8 w-full z-20">
+      <div className={`${styles.headerContent} text-center mb-8 w-full z-20`}>
         <h1 className="text-8xl font-bold mb-2 text-white">Kenny Collins</h1>
         <p className="text-4xl text-blue-200">Fullstack Software Engineer</p>
       </div>
@@ -26,7 +28,9 @@ export default function LandingSection({ children, classname }: { children?: Rea
         </div>
         {/* Mobile-only about section */}
         <div className="w-full px-4 mt-8 md:hidden">
-          <div className="glass-panel bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700">
+          <div
+            className={`${styles.glassPanel} bg-blue-900 bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700`}
+          >
             <h3 className="text-xl font-bold mb-2 text-center text-blue-300">About Me</h3>
             <p className="text-gray-200">
               Full-stack developer passionate about creating exceptional digital experiences.

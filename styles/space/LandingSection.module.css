@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+/* Character section styles */
+.characterSection {
+    @apply relative min-h-screen w-full flex flex-col items-center justify-center;
+    z-index: 10;
+}
+
+/* Header content wrapper to position name at the top */
+.headerContent {
+    @apply text-center mb-8 w-full z-20;
+}
+
+.aboutWrapper {
+    @apply flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto px-4;
+}
+
+.glassPanel {
+    @apply bg-blue-900 backdrop-filter backdrop-blur-sm rounded-lg p-4 border border-blue-700 opacity-30;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
