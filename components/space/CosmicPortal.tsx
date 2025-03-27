@@ -86,6 +86,7 @@ export default function CosmicPortal() {
           className={`${styles.portalCircle} ${styles.outerCircle}`}
           style={{
             animationDuration: getAnimationDuration(30, 25),
+            // TODO: Fix opacity issue
             opacity: getGlowIntensity(),
           }}
         ></div>
